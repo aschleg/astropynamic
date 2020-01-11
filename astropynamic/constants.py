@@ -2,6 +2,7 @@
 
 class AU:
     km = 149599650.0
+    miles = 92955807.267433
 
 
 class DU:
