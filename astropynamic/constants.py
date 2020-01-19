@@ -1,31 +1,32 @@
+from astropynamic import const
 
 
 class AU:
-    km = 149599650.0
-    miles = 92955807.267433
+    km = const.au_km
+    miles = const.au_miles
 
 
 class DU:
-    ft = 20925646.325459318
-    miles = 3963.190591943
-    nm = 3443.918466523
-    km = 6378.137000000
+    ft = const.du_ft
+    miles = const.du_miles
+    nm = const.du_nm
+    km = const.du_km
 
 
 class EarthRotation:
-    angular_rotation = 0.05883359068688786
-    deg_min = 0.25068444793441402
-    rad_s = 0.00007292115000000
-    radians_solarday = 6.30038809866574
+    angular_rotation = const.earth_angular_rotation
+    deg_min = const.earth_deg_min
+    rad_s = const.earth_rad_s
+    radians_solarday = const.earth_radians_solarday
 
 
 class Shape:
-    semi_minor_axis_km = 6356.752314200
-    earth_eccentricity = 0.08181919044260 ** 2
-    earth_flattening = 1.0 / 298.257223563
+    semi_minor_axis_km = const.shape_semi_minor_axis_km
+    earth_eccentricity = const.shape_earth_eccentricity
+    earth_flattening = const.shape_earth_flattening
 
 
 class TU:
-    min = 13.44685108204
-    sec = 806.81106492270
-    days = 0.00933809102919444
+    min = const.tu_min
+    sec = const.tu_sec
+    days = const.tu_days

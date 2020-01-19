@@ -1,6 +1,10 @@
+import setuptools
+from setuptools import find_packages
+from numpy.distutils.core import setup, Extension
 
-from setuptools import find_packages, setup
 
+dates = Extension(name='astropynamic.dates', sources=['src/dates.f95'])
+const = Extension(name='astropynamic.const', sources=['src/const.f95'])
 
 setup(
     name='astropynamic',
@@ -11,7 +15,8 @@ setup(
     description='Methods and Routines related to astrodynamics',
     license='MIT',
     packages=find_packages(exclude=['build', 'dist', 'petpy.egg-info',
-                                    'docs', 'notebooks', 'tests*']),
+                                    'docs', 'notebooks', 'tests*', 'src']),
+    ext_modules=[dates, const],
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
     install_requires=['numpy>=1.18'],

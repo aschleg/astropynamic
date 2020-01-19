@@ -60,9 +60,25 @@ def julian_date(dt=None, year=None, month=1, day=1, hour=0, minute=0, second=0, 
     if dt is None:
         dt = datetime.datetime(year=year, month=month, day=day, hour=hour, minute=minute, second=second)
 
-    julian = dates.julian(year=dt.year, month=dt.month, day=dt.day, hour=dt.hour, minute=dt.minute, second=dt.second)
+    j = dates.julian(year=dt.year, month=dt.month, day=dt.day, hour=dt.hour, minute=dt.minute, second=dt.second)
 
     if modified:
-        julian -= 2400000.5
+        j -= 2400000.5
 
-    return julian
+    return j
+
+
+def greenwich_sidereal(julian=None):
+    if julian is None:
+        julian = julian_date()
+    g = dates.greenwich_sidereal(julian)
+
+    return g
+
+
+def local_sidereal(julian, lon):
+    if julian is None:
+        julian = julian_date()
+    l = dates.local_sidereal(julian, lon)
+
+    return l
