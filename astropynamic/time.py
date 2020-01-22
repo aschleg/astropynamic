@@ -76,7 +76,7 @@ def greenwich_sidereal(julian=None):
     return g
 
 
-def local_sidereal(julian, lon):
+def local_sidereal(lon, julian=None):
     if julian is None:
         julian = julian_date()
     l = dates.local_sidereal(julian, lon)

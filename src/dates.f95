@@ -1,3 +1,4 @@
+use constants
 
 subroutine julian (year, month, day, hour, minute, second, julian_date)
     implicit none
@@ -19,14 +20,13 @@ subroutine julian (year, month, day, hour, minute, second, julian_date)
     end subroutine
 
 
-subroutine greenwich_sidereal (julian_date, sidereal)
+real*8 function greenwich_sidereal (julian_date)
     implicit none
     real*8, intent(in) :: julian_date
-    real*8, intent(out) :: sidereal
     real*8 temp, tu, radperday, twopi
 
-    radperday = 6.3003880986657400
-    twopi = 6.2831853071795900
+    radperday = constants.radperday
+    twopi = constants.twopi
 
     tu = ( DINT(julian_date) + 0.500 - 2451545.000 ) / (36525.000)
     temp = 1.75336855900 + 628.331970500 * tu + 6.7707081270 - 06 * tu ** 2 + radperday * DBLE (julian_date-DINT(julian_date) - 0.5)
@@ -36,10 +36,10 @@ subroutine greenwich_sidereal (julian_date, sidereal)
         temp = temp + twopi
     endif
 
-    sidereal = temp
+    greenwich_sidereal = temp
 
     return
-    end subroutine
+    end function
 
 
 subroutine local_sidereal (julian_date, lon, lst)
