@@ -79,6 +79,10 @@ def greenwich_sidereal(julian=None):
 def local_sidereal(lon, julian=None):
     if julian is None:
         julian = julian_date()
-    l = dates.local_sidereal(julian, lon)
+    ls = dates.local_sidereal(julian, lon)
 
-    return l
+    return ls
+
+
+def sunrise_sunset(lat, lon, which, julian=None):
+    pass

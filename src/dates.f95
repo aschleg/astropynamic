@@ -59,3 +59,48 @@ subroutine local_sidereal (julian_date, lon, lst)
 
     return
     end subroutine
+
+
+!subroutine inverse_julian (julian_date)
+!    implicit none
+!    real*8 temp, tu, days
+!    integer year, month, day, hour, minute, sec, leapyears
+!
+!    temp = julian_date - 2415019.5
+!    tu = temp / 365.25
+!    year = 1900 + trunc(tu)
+!    leapyears = trunc((year - 1900 - 1) / 4.0)
+!    days = temp - ((year - 1900) * 365.0 + leapyears)
+!
+!    if (days < 1.0) then
+!        year = year - 1
+!        leapyears = trunc((year - 1900 - 1) / 4.0)
+!        days = temp - ((year - 1900) * 365.0 + leapyears)
+!    end if
+!
+!    return
+!    end subroutine
+
+
+!subroutine sunrise_sunset (julian_date, lat, lon, which, sunrise, sunset)
+!    use constants
+!    implicit none
+!
+!    real*8 julian_date, lat, lon, sunrise, sunset
+!    character which
+!    real*8 z, t, m, l, ra, sindelta, delta, h, sec, days, rad
+!    integer year, month, day, hr, min
+!
+!    rad = 57.2957795130823000
+!
+!    if (which == 's') then
+!        z = (90.000 + 50.000 / 60.000) / rad
+!    elseif (which == 'c') then
+!        z = 96.000 / rad
+!    elseif (which == 'n') then
+!        z = 102.000 / rad
+!    elseif (which == 'a') then
+!        z = 108.000 / rad
+!    end if
+!
+!    end subroutine
